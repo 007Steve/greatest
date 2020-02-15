@@ -4,23 +4,38 @@ class Greatest::CLI
         
 
         puts" 
-        Welcome to the Greatest NBA player list"
+        Welcome to the Greatest NBA player list!
+        
+        "
         show_player
-        get_player
-        #get_stats for(player)
-        #list_players
+        list_player
+        #get_stats
+        
     end
     
     def show_player
-      #scraper players
+     puts" Select one of the Greatest NBA players
+    
+     "
      @player = ["Michael Jordan",'Hakeem Olajuwon','Shaquille ONeal', 'Tim Duncan',"Wilt Chamberlain","LeBron James","Larry Bird"] 
       
      
     end
     
-    def get_player
-      @player.each_with_index do | player, index| puts"#{index} #{player} "
+    def list_player
+      @player.each.with_index(1) do | player, index| puts"#{index} #{player} "
       end
-        
+      end
+      def get_stats
+        select_player = gets.strip
+        if valid_input(select_player,@player)
+          show_player_for(select_player)
+      end
     end
-end
+    def valid_input(input,data)
+      input.to_i <= data.length && input.to_i > 0
+    end
+    def show_player_for(select_player)
+      
+    end
+  end
